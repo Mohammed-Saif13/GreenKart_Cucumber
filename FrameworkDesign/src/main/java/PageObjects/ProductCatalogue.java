@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Reporter;
 
 import AbstractComponents.ReUsableCode;
 
@@ -50,7 +51,8 @@ public class ProductCatalogue extends ReUsableCode {
 	public CartPage addProductToCart(String productName) throws InterruptedException
 	{
 		WebElement prod = getProductByName(productName);
-		prod.findElement(cartBtn).click();;
+		Reporter.log(productName);
+		prod.findElement(cartBtn).click();
 		waitForElementToAppear(toastMsg);
 		waitForElementToDisappear(spinner);
 		Thread.sleep(5000);
